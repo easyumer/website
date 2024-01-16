@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -51,12 +50,8 @@
 
         #noBtn:hover {
             background: #FF7043; /* Lighter Coral Color on Hover */
-            transform: scale(1.1);
-        }
-
-        @media only screen and (max-width: 600px) {
-            #noBtn {
-                animation: none; /* Disable animation on mobile */
+            @media only screen and (min-width: 600px) {
+                transform: translate(${newX}px, ${newY}px);
             }
         }
     </style>
@@ -65,7 +60,7 @@
     <div id="question">Zahra, will you go out with me on 1st Feb?</div>
     <div class="btn-container">
         <button id="yesBtn" class="btn" onclick="showFireworks()">Yes</button>
-        <button id="noBtn" class="btn" onmouseover="relocateButton()">No</button>
+        <button id="noBtn" class="btn" onmouseover="relocateButton()" onclick="relocateButtonMobile()">No</button>
     </div>
 
     <script>
@@ -79,6 +74,11 @@
             var newY = Math.floor(Math.random() * (window.innerHeight - button.clientHeight));
 
             button.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        function relocateButtonMobile() {
+            // On mobile, change location on click
+            relocateButton();
         }
     </script>
 </body>
