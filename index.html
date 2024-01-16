@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: #f0f0f0; /* Light Gray Background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333; /* Dark Gray Text */
+        }
+
+        #question {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #yesBtn {
+            background: #4CAF50; /* Green Color */
+            color: #fff;
+        }
+
+        #noBtn {
+            background: #FF5733; /* Coral Color */
+            color: #fff;
+        }
+
+        #noBtn:hover {
+            background: #FF7043; /* Lighter Coral Color on Hover */
+            transform: scale(1.1);
+        }
+
+        @media only screen and (max-width: 600px) {
+            #noBtn {
+                animation: none; /* Disable animation on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="question">Zahra, will you go out with me on 1st Feb?</div>
+    <div class="btn-container">
+        <button id="yesBtn" class="btn" onclick="showFireworks()">Yes</button>
+        <button id="noBtn" class="btn" onmouseover="relocateButton()">No</button>
+    </div>
+
+    <script>
+        function showFireworks() {
+            window.location.href = "yay.html";
+        }
+
+        function relocateButton() {
+            var button = document.getElementById('noBtn');
+            var newX = Math.floor(Math.random() * (window.innerWidth - button.clientWidth));
+            var newY = Math.floor(Math.random() * (window.innerHeight - button.clientHeight));
+
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+    </script>
+</body>
+</html>
